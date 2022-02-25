@@ -36,7 +36,7 @@ namespace CrownCollector
         /// <summary>
         /// Holds an array of system network interfaces.
         /// </summary>
-        private NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+        private NetworkInterface[] nics;
 
         private PCInformation _Entity;
         private StringBuilder _Log = new StringBuilder();
@@ -46,7 +46,7 @@ namespace CrownCollector
         /// </summary>
         public CollectorWMI()
         {
-
+            nics = NetworkInterface.GetAllNetworkInterfaces();
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace CrownCollector
             Entity = new PCInformation();
 
             // Collect default values that don't require a ManagementCollection.
-            Entity.ComputerName = Environment.MachineName;
+            Entity.ComputerName = GetAndFormatName();
             Entity.IPAddress = GetIPAddress();
             Entity.MACAddress = BitConverter.ToString(nics[0].GetPhysicalAddress().GetAddressBytes());
 
@@ -121,6 +121,25 @@ namespace CrownCollector
             // Get graphics card information.
             foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.Video))
                 Entity.GraphicsCard = TryGetManagementValue<string>("Name", mo, ref _Log);
+        }
+
+        /// <summary>
+        /// Get the machine name then format in a way that does not include the installation path.
+        /// </summary>
+        /// <returns></returns>
+        protected string GetAndFormatName()
+        {
+            string m = Environment.MachineName;
+
+            // Windows 10 lists the installation partition along with the name.
+            bool ListsPath = m.Contains("|");
+            if (ListsPath)
+            {
+                int path = m.IndexOf("|");
+                m = m.Substring(0, path - 1);
+            }
+
+            return m;
         }
 
         /// <summary>

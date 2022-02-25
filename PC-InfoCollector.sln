@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-CollectorLib", "PC-InfoCollectorLib\PC-CollectorLib.csproj", "{7622860E-FABD-4217-BBDB-3811400EF2AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorLib", "PC-InfoCollectorLib\PC-InfoCollectorLib.csproj", "{7622860E-FABD-4217-BBDB-3811400EF2AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCGrabber", "PCGrabber\PCGrabber.csproj", "{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorGrabber", "PCGrabber\PC-InfoCollectorGrabber.csproj", "{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorWriter", "PC-InfoCollectorWriter\PC-InfoCollectorWriter.csproj", "{992167EF-D6A0-4159-A808-D3282173C506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992167EF-D6A0-4159-A808-D3282173C506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992167EF-D6A0-4159-A808-D3282173C506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992167EF-D6A0-4159-A808-D3282173C506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992167EF-D6A0-4159-A808-D3282173C506}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -48,9 +48,9 @@ namespace CrownCollector
             return XmlHelper.DeserializeT<PCInformation>(path);
         }
 
-        public static bool Save(string path, PCInformation pc)
+        public static bool Save(string directoryPath, PCInformation pc)
         {
-            string filePath = path + pc.MACAddress + ".xml";
+            string filePath = directoryPath + pc.MACAddress + ".xml";
             return XmlHelper.SerializeT<PCInformation>(filePath, pc, FileMode.Create, true);
         }
     }
