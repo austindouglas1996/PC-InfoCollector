@@ -36,6 +36,7 @@ namespace CrownCollector
         public string Manufacture { get; set; }
         public string IPAddress { get; set; }
         public string MACAddress { get; set; }
+        public string LastKnownUser { get; set; }
         public string OSName { get; set; }
         public string Processor { get; set; }
         public string MemoryInGB { get; set; }
