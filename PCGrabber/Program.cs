@@ -38,7 +38,7 @@ namespace PCGrabber
         private static void WriteLog(string errorLog)
         {
             using (FileStream fs = new FileStream("ErrorLog.txt", FileMode.OpenOrCreate))
-                using (StreamWriter sw = new StreamWriter("ErrorLog.txt"))
+                using (StreamWriter sw = new StreamWriter(fs))
                     sw.WriteLine(sw);
         }
     }
