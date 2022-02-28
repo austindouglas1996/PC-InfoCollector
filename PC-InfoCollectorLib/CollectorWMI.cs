@@ -91,7 +91,10 @@ namespace CrownCollector
 
             // Get manufacture.
             foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.Computer))
+            {
+                Entity.LastKnownUser = TryGetManagementValue<string>("Username", mo, ref _Log);
                 Entity.Manufacture = TryGetManagementValue<string>("Manufacturer", mo, ref _Log);
+            }
 
             // Get manufacture.
             foreach (ManagementObject bb in GetManagementInfo(CollectorWMI.BaseBoard))
