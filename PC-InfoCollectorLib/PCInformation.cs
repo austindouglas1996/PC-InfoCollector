@@ -20,6 +20,8 @@ namespace CrownCollector
             Manufacture = "";
             IPAddress = "";
             MACAddress = "";
+            LastKnownUser = "";
+            LastKnownCollection = DateTime.Now;
             OSName = "";
             Processor = "";
             MemoryInGB = "";
