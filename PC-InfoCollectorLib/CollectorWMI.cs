@@ -107,6 +107,7 @@ namespace CrownCollector
                 disk.Caption = TryGetManagementValue<string>("Caption", mo, ref _Log);
                 disk.SerialNumber = TryGetManagementValue<string>("SerialNumber", mo, ref _Log);
                 disk.TotalSpace = SizeHelper.FormatBytes((long)Convert.ToUInt64(mo["Size"].ToString()));
+                disk.AvailableSpace = SizeHelper.FormatBytes((long)Convert.ToUint64(mo["Availability"].ToString()));
                 Entity.Disks.Add(disk);
             }
 
