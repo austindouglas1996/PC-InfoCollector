@@ -11,5 +11,6 @@ namespace CrownCollector.Domain
         public string Caption { get; set; }
         public string SerialNumber { get; set; }
         public string TotalSpace { get; set; }
+        public string AvailableSpace { get; set; }
     }
 }
