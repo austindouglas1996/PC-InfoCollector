@@ -85,7 +85,7 @@ namespace CrownCollector
             Entity = new PCInformation();
 
             // Collect default values that don't require a ManagementCollection.
-            Entity.ComputerName = GetAndFormatName();
+            Entity.ComputerName = Environment.MachineName;
             Entity.IPAddress = GetIPAddress();
             Entity.MACAddress = BitConverter.ToString(nics[0].GetPhysicalAddress().GetAddressBytes());
 
@@ -107,7 +107,6 @@ namespace CrownCollector
                 disk.Caption = TryGetManagementValue<string>("Caption", mo, ref _Log);
                 disk.SerialNumber = TryGetManagementValue<string>("SerialNumber", mo, ref _Log);
                 disk.TotalSpace = SizeHelper.FormatBytes((long)Convert.ToUInt64(mo["Size"].ToString()));
-                disk.AvailableSpace = SizeHelper.FormatBytes((long)Convert.ToUint64(mo["Availability"].ToString()));
                 Entity.Disks.Add(disk);
             }
 
@@ -120,7 +119,7 @@ namespace CrownCollector
 
             // Get operating system.
             foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.OperatingSystem))
-                Entity.OSName = TryGetManagementValue<string>("Name", mo, ref _Log);
+                Entity.OSName = GetAndFormatOSName(TryGetManagementValue<string>("Name", mo, ref _Log));
 
             // Get graphics card information.
             foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.Video))
@@ -131,19 +130,17 @@ namespace CrownCollector
         /// Get the machine name then format in a way that does not include the installation path.
         /// </summary>
         /// <returns></returns>
-        protected string GetAndFormatName()
+        protected string GetAndFormatOSName(string os)
         {
-            string m = Environment.MachineName;
-
             // Windows 10 lists the installation partition along with the name.
-            bool ListsPath = m.Contains("|");
+            bool ListsPath = os.Contains("|");
             if (ListsPath)
             {
-                int path = m.IndexOf("|");
-                m = m.Substring(0, path - 1);
+                int path = os.IndexOf("|");
+                os = os.Substring(0, path);
             }
 
-            return m;
+            return os;
         }
 
         /// <summary>
