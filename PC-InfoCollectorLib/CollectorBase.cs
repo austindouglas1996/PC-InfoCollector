@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CrownCollector
 {
     public abstract class CollectorBase<T>
-        where T : class
+        where T : IPCInformation
     {
         public abstract string GetLog { get; }
         public abstract T Entity { get; protected set; }

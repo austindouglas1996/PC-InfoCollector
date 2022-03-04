@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectorBase.cs" />
+    <Compile Include="CSVWriter.cs" />
     <Compile Include="Domain\Disk.cs" />
     <Compile Include="Domain\WarrantyInfo.cs" />
     <Compile Include="Helper\SizeHelper.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CollectorWMI.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="WriterBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

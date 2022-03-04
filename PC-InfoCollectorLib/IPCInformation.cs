@@ -7,7 +7,7 @@ using CrownCollector.Domain;
 
 namespace CrownCollector
 {
-    internal interface IPCInformation
+    public interface IPCInformation
     {
         int Version { get; set; }
         string ComputerName { get; set; }

@@ -10,6 +10,7 @@ namespace PC_InfoCollectorWriter
     {
         public static void Main(string[] args)
         {
+
         }
     }
 }
