@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PCGrabber</RootNamespace>
-    <AssemblyName>PCGrabber</AssemblyName>
+    <RootNamespace>PCInfoCollector.Grabber</RootNamespace>
+    <AssemblyName>PCInfoCollector.Grabber</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -56,6 +56,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

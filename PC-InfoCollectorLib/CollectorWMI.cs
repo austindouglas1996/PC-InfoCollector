@@ -81,6 +81,8 @@ namespace PcInfoCollector
         {
             this._CollectCalled = true;
 
+            this.Entity = new PCInformation();
+
             // Collect default values that don't require a ManagementCollection.
             Entity.ComputerName = Environment.MachineName;
             Entity.IPAddress = GetIPAddress();

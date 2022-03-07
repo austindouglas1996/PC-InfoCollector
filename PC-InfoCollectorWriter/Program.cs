@@ -1,6 +1,5 @@
 ﻿
 using PcInfoCollector;
-using PcInfoCollector.Writer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PC_InfoCollectorWriter
+namespace PCInfoCollector.Writer
 {
     internal class Program
     {

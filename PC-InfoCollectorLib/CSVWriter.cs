@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PcInfoCollector.Writer
+namespace PcInfoCollector
 {
     public class CSVWriter
     {
@@ -25,7 +25,7 @@ namespace PcInfoCollector.Writer
             }
 
             // Make it look nice.
-            PCs.OrderBy(p => p.IPAddress);
+            PCs = PCs.OrderBy(p => p.IPAddress).ToList();
 
             StringBuilder sb = new StringBuilder();
             foreach (var PC in PCs)
