@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PcInfoCollector
+namespace PcInfoCollector.Writer
 {
     public class CSVWriter : WriterBase
     {
