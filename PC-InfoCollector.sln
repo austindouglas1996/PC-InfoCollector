@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorLib", "PC-InfoCollectorLib\PC-InfoCollectorLib.csproj", "{7622860E-FABD-4217-BBDB-3811400EF2AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorGrabber", "PCGrabber\PC-InfoCollectorGrabber.csproj", "{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorGrabber", "PC-InfoCollector.Grabber\PC-InfoCollector.Grabber.csproj", "{61B442CA-1D1D-44A3-AA17-6BB36EA9F225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorWriter", "PC-InfoCollectorWriter\PC-InfoCollectorWriter.csproj", "{992167EF-D6A0-4159-A808-D3282173C506}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC-InfoCollectorWriter", "PC-InfoCollector.Writer\PC-InfoCollector.Writer.csproj", "{992167EF-D6A0-4159-A808-D3282173C506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
