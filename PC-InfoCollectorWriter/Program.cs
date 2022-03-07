@@ -1,4 +1,6 @@
-﻿using PcInfoCollector;
+﻿
+using PcInfoCollector;
+using PcInfoCollector.Writer;
 using System;
 using System.Collections.Generic;
 using System.IO;
