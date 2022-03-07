@@ -7,7 +7,7 @@
     <ProjectGuid>{992167EF-D6A0-4159-A808-D3282173C506}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>PCInfoCollector.Writer</RootNamespace>
-    <AssemblyName>PCInfoCollector.Writer</AssemblyName>
+    <AssemblyName>PC-InfoCollector.Writer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
