@@ -7,8 +7,8 @@
     <ProjectGuid>{7622860E-FABD-4217-BBDB-3811400EF2AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrownCollector</RootNamespace>
-    <AssemblyName>CrownCollector</AssemblyName>
+    <RootNamespace>PCInfoCollector</RootNamespace>
+    <AssemblyName>PCInfoCollector</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectorBase.cs" />
-    <Compile Include="CSVWriter.cs" />
+    <Compile Include="Writer\CSVWriter.cs" />
     <Compile Include="Domain\Disk.cs" />
     <Compile Include="Domain\WarrantyInfo.cs" />
     <Compile Include="Helper\SizeHelper.cs" />
@@ -63,7 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CollectorWMI.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="WriterBase.cs" />
+    <Compile Include="Writer\WriterBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

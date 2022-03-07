@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrownCollector.Helper
+namespace PcInfoCollector.Helper
 {
     public static class SizeHelper
     {
+        /// <summary>
+        /// Format bytes into an acceptable string memory size from Bytes,KB,MB, to GB.
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
         public static string FormatBytes(long bytes)
         {
             const int scale = 1024;

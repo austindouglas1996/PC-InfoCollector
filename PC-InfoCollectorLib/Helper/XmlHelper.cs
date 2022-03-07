@@ -6,10 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace CrownCollector.Helper
+namespace PcInfoCollector.Helper
 {
     public static class XmlHelper
     {
+        /// <summary>
+        /// Deserialize an object that was previously <see cref="SerializeT{T}(string, T, FileMode, bool)"/> back into an object.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static T DeserializeT<T>(string path)
         {
             if (!File.Exists(path))
@@ -22,6 +28,16 @@ namespace CrownCollector.Helper
             }
         }
 
+        /// <summary>
+        /// Serialize an object into a XML file that can be later loaded by <see cref="DeserializeT{T}(string)"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <param name="value"></param>
+        /// <param name="mode"></param>
+        /// <param name="deleteExisting"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static bool SerializeT<T>(string path, T value, FileMode mode, bool deleteExisting = false)
         {
             if (File.Exists(path))

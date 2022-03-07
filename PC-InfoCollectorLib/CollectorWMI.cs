@@ -1,5 +1,5 @@
-﻿using CrownCollector.Domain;
-using CrownCollector.Helper;
+﻿using PcInfoCollector.Domain;
+using PcInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrownCollector
+namespace PcInfoCollector
 {
     /// <summary>
     /// Collects system information based on <see cref="https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-provider"/> instances.

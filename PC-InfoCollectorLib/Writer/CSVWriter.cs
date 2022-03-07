@@ -1,13 +1,13 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrownCollector
+namespace PcInfoCollector
 {
-    public class CSVWriter : WriterBase<string>
+    public class CSVWriter : WriterBase
     {
         public CSVWriter(Settings settings) : base(settings)
         {
@@ -19,7 +19,7 @@ namespace CrownCollector
             foreach (var file in Directory.GetFiles(base.Settings.WaitingToBeProcessedDir))
             {
                 IPCInformation pc = PCInformation.Load(file);
-                sb.AppendLine(ToCSV(pc));
+                sb.Append(ToCSV(pc));
             }
             return sb.ToString();
         }
@@ -70,9 +70,6 @@ namespace CrownCollector
             // Keys (Columns)
             for (int c = 0; c < maxColumns; c++)
             {
-                // Add the column name.
-                processed.Add(new Tuple<int, int, string>(c, 0, val.Keys.ToList()[c]));
-
                 // Grab the string of values
                 string[] data = val.Values.ToList()[c];
 
@@ -95,12 +92,12 @@ namespace CrownCollector
                         dataValue = dataValue.Replace(",", "");
                     }
 
-                    processed.Add(new Tuple<int, int, string>(c, v + 1, dataValue));
+                    processed.Add(new Tuple<int, int, string>(c, v, dataValue));
                 }
             }
 
             // Process the date into a CSV format.
-            for (int v = 0; v < maxRows + 1; v++)
+            for (int v = 0; v < maxRows; v++)
             {
                 string rowData = "";
 

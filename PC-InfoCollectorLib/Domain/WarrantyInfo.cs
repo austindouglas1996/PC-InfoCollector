@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrownCollector.Domain
+namespace PcInfoCollector.Domain
 {
     /// <summary>
     /// Provides information on the warranty of the PC.

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CrownCollector.Domain;
+using PcInfoCollector.Domain;
 
-namespace CrownCollector
+namespace PcInfoCollector
 {
     public interface IPCInformation
     {

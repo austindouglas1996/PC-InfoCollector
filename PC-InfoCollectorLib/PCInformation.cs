@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using CrownCollector.Domain;
-using CrownCollector.Helper;
+using PcInfoCollector.Domain;
+using PcInfoCollector.Helper;
 
-namespace CrownCollector
+namespace PcInfoCollector
 {
     public class PCInformation : IPCInformation
     {

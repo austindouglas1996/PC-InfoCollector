@@ -1,5 +1,5 @@
-﻿using CrownCollector;
-using CrownCollector.Helper;
+﻿using PcInfoCollector;
+using PcInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrownCollector
+namespace PcInfoCollector
 {
-    public abstract class WriterBase<ReturnType>
+    public abstract class WriterBase
     {
         private Settings _settings;
 
@@ -21,6 +21,6 @@ namespace CrownCollector
             set { _settings = value; }
         }
 
-        public abstract ReturnType Write();
+        public abstract string Write();
     }
 }

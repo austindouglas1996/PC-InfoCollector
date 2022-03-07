@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PC-InfoCollectorLib\PC-InfoCollectorLib.csproj">
+      <Project>{7622860e-fabd-4217-bbdb-3811400ef2ac}</Project>
+      <Name>PC-InfoCollectorLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

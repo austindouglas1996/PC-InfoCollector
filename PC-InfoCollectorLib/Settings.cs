@@ -1,4 +1,4 @@
-﻿using CrownCollector.Helper;
+﻿using PcInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace CrownCollector
+namespace PcInfoCollector
 {
     public class Settings
     {

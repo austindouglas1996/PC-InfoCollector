@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrownCollector
+namespace PcInfoCollector
 {
     public abstract class CollectorBase<T>
         where T : IPCInformation
