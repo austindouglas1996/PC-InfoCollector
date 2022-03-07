@@ -15,7 +15,7 @@ namespace PC_InfoCollectorWriter
         public static void Main(string[] args)
         {
             Settings setting = Settings.LoadSettings();
-            WriterBase writer = new CSVWriter(setting);
+            CSVWriter writer = new CSVWriter(setting);
 
             if (File.Exists("Output.txt"))
                 File.Delete("Output.txt");

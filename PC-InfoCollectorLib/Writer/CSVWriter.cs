@@ -7,20 +7,32 @@ using System.Threading.Tasks;
 
 namespace PcInfoCollector.Writer
 {
-    public class CSVWriter : WriterBase
+    public class CSVWriter
     {
-        public CSVWriter(Settings settings) : base(settings)
+        private Settings Settings;
+
+        public CSVWriter(Settings settings)
         {
+            this.Settings = settings;
         }
 
-        public override string Write()
+        public string Write()
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (var file in Directory.GetFiles(base.Settings.WaitingToBeProcessedDir))
+            List<IPCInformation> PCs = new List<IPCInformation>();
+            foreach (var file in Directory.GetFiles(Settings.WaitingToBeProcessedDir))
             {
-                IPCInformation pc = PCInformation.Load(file);
-                sb.Append(ToCSV(pc));
+                PCs.Add(PCInformation.Load(file));
             }
+
+            // Make it look nice.
+            PCs.OrderBy(p => p.IPAddress);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var PC in PCs)
+            {
+                sb.Append(ToCSV(PC));
+            }
+
             return sb.ToString();
         }
 
@@ -79,18 +91,14 @@ namespace PcInfoCollector.Writer
                     string dataValue = "";
 
                     if (data.Length > v)
-                    {
                         dataValue = data[v];
-                    }
 
                     // Make sure the data is not empty.
                     if (string.IsNullOrEmpty(dataValue))
                         dataValue = "";
-                    else
-                    {
-                        // Clean the data of any issues.
-                        dataValue = dataValue.Replace(",", "");
-                    }
+
+                    // Clean the data of any issues.
+                    dataValue = dataValue.Replace(",", "");
 
                     processed.Add(new Tuple<int, int, string>(c, v, dataValue));
                 }

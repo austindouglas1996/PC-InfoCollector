@@ -38,9 +38,6 @@ namespace PcInfoCollector
         /// </summary>
         private NetworkInterface[] nics;
 
-        private PCInformation _Entity;
-        private StringBuilder _Log = new StringBuilder();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectorWMI"/> class.
         /// </summary>
@@ -56,6 +53,7 @@ namespace PcInfoCollector
         {
             get { return _Log.ToString(); }
         }
+        private StringBuilder _Log = new StringBuilder();
 
         /// <summary>
         /// Returns the created entity.
@@ -74,6 +72,7 @@ namespace PcInfoCollector
                 _Entity = value;
             }
         }
+        private PCInformation _Entity;
 
         /// <summary>
         /// Collect system information so <see cref="Entity"/> can be called.
@@ -81,8 +80,6 @@ namespace PcInfoCollector
         public override void Collect()
         {
             this._CollectCalled = true;
-
-            Entity = new PCInformation();
 
             // Collect default values that don't require a ManagementCollection.
             Entity.ComputerName = Environment.MachineName;

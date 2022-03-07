@@ -1,5 +1,6 @@
 ﻿using PcInfoCollector;
 using PcInfoCollector.Helper;
+using PcInfoCollector.Writer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,9 +31,6 @@ namespace PCGrabber
 
             // Save system information to the waiting to be processed directory.
             PCInformation.Save(settings.WaitingToBeProcessedDir, collector.Entity);
-
-            CSVWriter wr = new CSVWriter(settings);
-            wr.Write();
         }
 
         /// <summary>
