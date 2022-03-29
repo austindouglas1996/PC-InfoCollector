@@ -21,6 +21,7 @@ namespace PcInfoCollector
             IPAddress = "";
             MACAddress = "";
             LastKnownUser = "";
+            LastRebootTime = DateTime.MinValue;
             LastKnownCollection = DateTime.Now;
             OSName = "";
             Processor = "";
@@ -39,6 +40,7 @@ namespace PcInfoCollector
         public string IPAddress { get; set; }
         public string MACAddress { get; set; }
         public string LastKnownUser { get; set; }
+        public DateTime LastRebootTime { get; set; }
         public DateTime LastKnownCollection { get; set; }
         public string OSName { get; set; }
         public string Processor { get; set; }

@@ -21,10 +21,20 @@ namespace PcInfoCollector.Helper
             if (!File.Exists(path))
                 return default(T);
 
-            using (FileStream fs = new FileStream(path, FileMode.Open))
+            try
             {
-                XmlSerializer serialier = new XmlSerializer(typeof(T));
-                return (T)serialier.Deserialize(fs);
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                {
+                    XmlSerializer serialier = new XmlSerializer(typeof(T));
+                    return (T)serialier.Deserialize(fs);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("Deserialize - type: {0} - path: {1} - message {2}",
+                    typeof(T), path, ex.Message));
+
+                throw ex;
             }
         }
 
@@ -40,21 +50,31 @@ namespace PcInfoCollector.Helper
         /// <exception cref="ArgumentException"></exception>
         public static bool SerializeT<T>(string path, T value, FileMode mode, bool deleteExisting = false)
         {
-            if (File.Exists(path))
+            try
             {
-                if (deleteExisting)
-                    File.Delete(path);
-                else if (!deleteExisting && mode == FileMode.Create)
-                    throw new ArgumentException("File already exists. Unable to serialize object.");
-            }
+                if (File.Exists(path))
+                {
+                    if (deleteExisting)
+                        File.Delete(path);
+                    else if (!deleteExisting && mode == FileMode.Create)
+                        throw new ArgumentException("File already exists. Unable to serialize object.");
+                }
 
-            using (FileStream fs = new FileStream(path, mode))
+                using (FileStream fs = new FileStream(path, mode))
+                {
+                    XmlSerializer serialier = new XmlSerializer(typeof(T));
+                    serialier.Serialize(fs, value);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
             {
-                XmlSerializer serialier = new XmlSerializer(typeof(T));
-                serialier.Serialize(fs, value);
-            }
+                Logger.Log(string.Format("Serialize - type: {0} - path: {1} - message {2}",
+                    typeof(T), path, ex.Message));
 
-            return true;
+                throw ex;
+            }
         }
     }
 }

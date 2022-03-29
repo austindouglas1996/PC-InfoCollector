@@ -118,7 +118,12 @@ namespace PcInfoCollector
 
             // Get operating system.
             foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.OperatingSystem))
+            {
                 Entity.OSName = GetAndFormatOSName(TryGetManagementValue<string>("Name", mo, ref _Log));
+
+                string boot = (TryGetManagementValue<string>("LastBootUpTime", mo, ref _Log));
+                Entity.LastRebootTime = System.Management.ManagementDateTimeConverter.ToDateTime(boot);
+            }
 
             // Get graphics card information.
             foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.Video))

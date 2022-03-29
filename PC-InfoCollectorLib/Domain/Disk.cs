@@ -21,14 +21,47 @@ namespace PcInfoCollector.Domain
             get { return _SerialNumber; }
             set
             {
-                // Have noticed some hard drives contain HEX for a serial number.
-                if (value.Contains("0x03"))
-                    value = value.Replace("0x03", "");
+                if (CheckHex(value))
+                {
+                    value = "Invalid_Hex";
+                }
+
+                // I'm too lazy to do this decently ):
+                if (value.Contains("&") |
+                    value.Contains("#") |
+                    value.Contains(";"))
+                {
+                    value = value.Replace("&", "");
+                    value = value.Replace("#", "");
+                    value = value.Replace(";", "");
+                }
 
                 _SerialNumber = value;
             }
         }
         private string _SerialNumber = "";
         public string TotalSpace { get; set; }
+
+        public static bool CheckHex(String s)
+        {
+            // Size of string
+            int n = s.Length;
+
+            // Iterate over string
+            for (int i = 0; i < n; i++)
+            {
+                char ch = s[i];
+
+                // Check if the character
+                // is invalid
+                if ((ch < '0' || ch > '9') &&
+                    (ch < 'A' || ch > 'F'))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

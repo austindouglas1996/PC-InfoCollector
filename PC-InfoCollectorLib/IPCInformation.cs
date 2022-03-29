@@ -16,6 +16,7 @@ namespace PcInfoCollector
         string IPAddress { get; set; }
         string MACAddress { get; set; }
         string LastKnownUser { get; set; }
+        DateTime LastRebootTime { get; set; }
         DateTime LastKnownCollection { get; set; }
         string OSName { get; set; }
         string Processor { get; set; }
