@@ -1,4 +1,4 @@
-﻿using PcInfoCollector.Helper;
+﻿using PCInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace PcInfoCollector
+namespace PCInfoCollector
 {
     public class Settings
     {

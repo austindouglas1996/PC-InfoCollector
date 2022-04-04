@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PcInfoCollector.Domain;
+using PCInfoCollector.Domain;
 
-namespace PcInfoCollector
+namespace PCInfoCollector
 {
     public interface IPCInformation
     {
@@ -23,6 +23,7 @@ namespace PcInfoCollector
         string MemoryInGB { get; set; }
         string GraphicsCard { get; set; }
         List<Disk> Disks { get; set; }
+        List<Printer> Printers { get; set; }
         WarrantyInfo Warranty { get; set; }
     }
 }

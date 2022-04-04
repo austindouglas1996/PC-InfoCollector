@@ -55,6 +55,7 @@
     <Compile Include="CollectorBase.cs" />
     <Compile Include="CSVWriter.cs" />
     <Compile Include="Domain\Disk.cs" />
+    <Compile Include="Domain\Printer.cs" />
     <Compile Include="Domain\WarrantyInfo.cs" />
     <Compile Include="Helper\Logger.cs" />
     <Compile Include="Helper\SizeHelper.cs" />

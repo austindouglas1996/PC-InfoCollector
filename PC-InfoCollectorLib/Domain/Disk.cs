@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PcInfoCollector.Domain
+namespace PCInfoCollector.Domain
 {
     public class Disk
     {

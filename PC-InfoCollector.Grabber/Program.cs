@@ -1,5 +1,5 @@
-﻿using PcInfoCollector;
-using PcInfoCollector.Helper;
+﻿using PCInfoCollector;
+using PCInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;

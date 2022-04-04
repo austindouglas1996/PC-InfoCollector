@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using PcInfoCollector.Domain;
-using PcInfoCollector.Helper;
+using PCInfoCollector.Domain;
+using PCInfoCollector.Helper;
 
-namespace PcInfoCollector
+namespace PCInfoCollector
 {
     public class PCInformation : IPCInformation
     {
@@ -28,6 +28,7 @@ namespace PcInfoCollector
             MemoryInGB = "";
             GraphicsCard = "";
             Disks = new List<Disk>();
+            Printers = new List<Printer>();
             Warranty = new WarrantyInfo();
         }
 
@@ -47,6 +48,7 @@ namespace PcInfoCollector
         public string MemoryInGB { get; set; }
         public string GraphicsCard { get; set; }
         public List<Disk> Disks { get; set; }
+        public List<Printer> Printers { get; set; }
         public WarrantyInfo Warranty { get; set; }
 
         public static PCInformation Load(string path)

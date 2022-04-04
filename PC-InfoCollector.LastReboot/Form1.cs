@@ -1,4 +1,4 @@
-﻿using PcInfoCollector;
+﻿using PCInfoCollector;
 using PCInfoCollector;
 using System;
 using System.Collections.Generic;

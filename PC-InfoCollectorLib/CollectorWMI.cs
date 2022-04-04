@@ -1,5 +1,5 @@
-﻿using PcInfoCollector.Domain;
-using PcInfoCollector.Helper;
+﻿using PCInfoCollector.Domain;
+using PCInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PcInfoCollector
+namespace PCInfoCollector
 {
     /// <summary>
     /// Collects system information based on <see cref="https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-provider"/> instances.
@@ -27,6 +27,7 @@ namespace PcInfoCollector
         private static readonly string Processor = "select * from Win32_Processor";
         private static readonly string OperatingSystem = "select * from Win32_OperatingSystem";
         private static readonly string Video = "select * from Win32_VideoController";
+        private static readonly string Printers = "select * from Win32_Printer";
 
         /// <summary>
         /// Don't allow the user to grab <see cref="Entity"/> if <see cref="Collect"/> has not be called yet.
@@ -128,6 +129,18 @@ namespace PcInfoCollector
             // Get graphics card information.
             foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.Video))
                 Entity.GraphicsCard = TryGetManagementValue<string>("Name", mo, ref _Log);
+
+
+            // Get printer information.
+            foreach (ManagementObject mo in GetManagementInfo(CollectorWMI.Printers))
+            {
+                Printer newPrinter = new Printer();
+                newPrinter.ShareName = TryGetManagementValue<string>("ShareName", mo, ref _Log);
+                newPrinter.Port = TryGetManagementValue<string>("PortName", mo, ref _Log);
+
+                if (!String.IsNullOrEmpty(newPrinter.ShareName))
+                    Entity.Printers.Add(newPrinter);
+            }
         }
 
         /// <summary>
