@@ -21,7 +21,7 @@ namespace PCInfoCollector.Helper
 
         private static void Write(string message)
         {
-            using (FileStream fs = new FileStream("ErrorLog.txt", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream("ErrorLog.txt", FileMode.Append))
             using (StreamWriter sw = new StreamWriter(fs))
             {
                 sw.WriteLine(message);

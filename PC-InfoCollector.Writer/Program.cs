@@ -1,5 +1,6 @@
 ﻿
 using PCInfoCollector;
+using PCInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,19 +16,26 @@ namespace PCInfoCollector.Writer
 
         public static void Main(string[] args)
         {
-            Settings setting = Settings.LoadSettings();
-            CSVWriter writer = new CSVWriter(setting);
-
-            if (File.Exists(OutputName))
-                File.Delete(OutputName);
-
-            using (FileStream fs = new FileStream(OutputName, FileMode.OpenOrCreate))
+            try
             {
-                using (StreamWriter sw = new StreamWriter(fs))
+                Settings setting = Settings.LoadSettings();
+                CSVWriter writer = new CSVWriter(setting);
+
+                if (File.Exists(OutputName))
+                    File.Delete(OutputName);
+
+                using (FileStream fs = new FileStream(OutputName, FileMode.OpenOrCreate))
                 {
-                    string result = writer.Write();
-                    sw.WriteLine(result);
+                    using (StreamWriter sw = new StreamWriter(fs))
+                    {
+                        string result = writer.Write();
+                        sw.WriteLine(result);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex);
             }
         }
     }

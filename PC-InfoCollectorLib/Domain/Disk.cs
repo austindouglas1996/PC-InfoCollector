@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCInfoCollector.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,19 +22,27 @@ namespace PCInfoCollector.Domain
             get { return _SerialNumber; }
             set
             {
-                if (CheckHex(value))
+                try
                 {
-                    value = "Invalid_Hex";
-                }
+                    if (CheckHex(value))
+                    {
+                        value = "Invalid_Hex";
+                    }
 
-                // I'm too lazy to do this decently ):
-                if (value.Contains("&") |
-                    value.Contains("#") |
-                    value.Contains(";"))
+                    // I'm too lazy to do this decently ):
+                    if (value.Contains("&") |
+                        value.Contains("#") |
+                        value.Contains(";"))
+                    {
+                        value = value.Replace("&", "");
+                        value = value.Replace("#", "");
+                        value = value.Replace(";", "");
+                    }
+                }
+                catch (Exception e)
                 {
-                    value = value.Replace("&", "");
-                    value = value.Replace("#", "");
-                    value = value.Replace(";", "");
+                    Logger.Log(e);
+                    value = "Empty";
                 }
 
                 _SerialNumber = value;
@@ -44,24 +53,32 @@ namespace PCInfoCollector.Domain
 
         public static bool CheckHex(String s)
         {
-            // Size of string
-            int n = s.Length;
-
-            // Iterate over string
-            for (int i = 0; i < n; i++)
+            try
             {
-                char ch = s[i];
+                // Size of string
+                int n = s.Length;
 
-                // Check if the character
-                // is invalid
-                if ((ch < '0' || ch > '9') &&
-                    (ch < 'A' || ch > 'F'))
+                // Iterate over string
+                for (int i = 0; i < n; i++)
                 {
-                    return false;
-                }
-            }
+                    char ch = s[i];
 
-            return true;
+                    // Check if the character
+                    // is invalid
+                    if ((ch < '0' || ch > '9') &&
+                        (ch < 'A' || ch > 'F'))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Logger.Log(e);
+                return false;
+            }
         }
     }
 }

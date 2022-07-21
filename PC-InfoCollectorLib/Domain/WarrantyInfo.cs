@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace PCInfoCollector.Domain
 {
     /// <summary>
     /// Provides information on the warranty of the PC.
     /// </summary>
+    [XmlInclude(typeof(LenovoWarrantyInfo))]
     public class WarrantyInfo
     {
         /// <summary>

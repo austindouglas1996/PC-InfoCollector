@@ -1,4 +1,5 @@
 ﻿using PCInfoCollector.Domain;
+using PCInfoCollector.Domain.Factory;
 using PCInfoCollector.Helper;
 using System;
 using System.Collections.Generic;
@@ -96,7 +97,14 @@ namespace PCInfoCollector
                 Entity.Manufacture = TryGetManagementValue<string>("Manufacturer", mo, ref _Log);
             }
 
-            // Get manufacture.
+            // Create a new warranty.
+            if (Entity.Manufacture == "LENOVO")
+            {
+                LenovoWarrantyFactory fact = new LenovoWarrantyFactory();
+                Entity.Warranty = fact.CreateRegistryWarranty();
+            }
+
+            // Get model.
             foreach (ManagementObject bb in GetManagementInfo(CollectorWMI.BaseBoard))
                 Entity.MotherboardModel = TryGetManagementValue<string>("Model", bb, ref _Log);
 
